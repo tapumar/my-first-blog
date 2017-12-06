@@ -9,6 +9,17 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def sobre(request):
+    return render(request, 'blog/sobre.html')
+
+def contatos(request):
+    return render(request, 'blog/contatos.html')
+
+def amigos(request):
+    return render(request, 'blog/amigos.html')
+
+def servicos_list(request):
+    return render(request, 'blog/servicos_list.html')
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
