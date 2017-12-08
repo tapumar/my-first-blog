@@ -1,9 +1,46 @@
-from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from .forms import PostForm
-from django.shortcuts import redirect
+from django.http import HttpResponse
+from django.contrib import messages
+from .forms import LoginForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'blog/signup.html', {'form': form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(username=cd['username'],
+                   password=cd['password'])
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return render(request, 'blog/sobre.html', {'form': form})
+                else:
+                    return HttpResponse('Disabled account')
+            else:
+                return HttpResponse('Invalid Login')
+    else:
+        form = LoginForm()
+    return render(request, 'blog/login.html', {'form': form})
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')

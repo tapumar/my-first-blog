@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^contatos', views.contatos, name='contatos' ),
     url(r'^servicos', views.servicos_list, name='servicos_list'),
     url(r'^amigos', views.amigos, name='amigos'),
+    url(r'^login/$', views.user_login, name='login'),
+    url(r'^signup/$', views.signup, name='signup'),
 ]
