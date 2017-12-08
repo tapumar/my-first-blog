@@ -7,9 +7,13 @@ urlpatterns = [
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^sobre$', views.sobre, name='sobre' ),
+    url(r'^login/sobre$', views.sobre, name='sobre' ),
     url(r'^contatos', views.contatos, name='contatos' ),
+    url(r'^login/contatos', views.contatos, name='contatos' ),
     url(r'^servicos', views.servicos_list, name='servicos_list'),
+    url(r'^login/servicos', views.servicos_list, name='servicos_list'),
     url(r'^amigos', views.amigos, name='amigos'),
+    url(r'^login/amigos', views.amigos, name='amigos'),
     url(r'^login/$', views.user_login, name='login'),
     url(r'^signup/$', views.signup, name='signup'),
 ]
