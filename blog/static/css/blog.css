@@ -37,8 +37,9 @@ h1, h2, h3, h4, h5 {
     width: 100%;
 }
 
-.nav {
+.nav-tabs {
   font-size: 15pt;
+  text-align: left;
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
