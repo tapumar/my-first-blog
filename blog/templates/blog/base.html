@@ -8,32 +8,33 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-      <a href="{% url 'signup' %}" class="top-menu">Sign up</a><a href="{% url 'login' %}" class="top-menu">Log in</a>
-      <div class="col-12 col-sm-12 col-lg-12">
-          <a href="/"><img src="../static/imagens/recomenda_capa.png" height="300" width="100%"></a>
-      </div>
-
-      {% if not user.is_authenticated %}
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-      {% endif %}
-      <div class="col-1 col-sm-1 col-lg-1">
-        <ul class="nav nav-tabs" id="myTab">
-          <li class="active"><a href="sobre">Sobre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-          <li class="active"><a href="servicos">Serviços&nbsp;</a></li>
-          <li class="active"><a href="amigos">Amigos&nbsp;&nbsp;&nbsp;</a></li>
-          <li class="active"><a href="contatos">Contatos&nbsp;</a></li>
-        </ul>
-      </div>
-      <div class="row">
-        <div id="content" class="tab-content">
-            <div class="tab-pane active" id="myTab">
-              <div class="col-md-8">
-              {% block content %}
-              {% endblock %}
-              </div>
+        <div class="container">
+            <a href="{% url 'signup' %}" class="top-menu">Sign up</a><a href="{% url 'login' %}" class="top-menu">Log in</a>
+            <div class="col-12 col-sm-12 col-lg-12">
+                <a href="/"><img src="../static/imagens/recomenda_capa.png"></a>
             </div>
 
+            {% if not user.is_authenticated %}
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}
+            <div class="col-1 col-sm-1 col-lg-1">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active"><a href="sobre">Sobre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li class="active"><a href="servicos">Serviços&nbsp;</a></li>
+                    <li class="active"><a href="amigos">Amiguinhos&nbsp;&nbsp;&nbsp;</a></li>
+                    <li class="active"><a href="contatos">Contatos&nbsp;</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div id="content" class="tab-content">
+                    <div class="tab-pane active" id="myTab">
+                        <div class="col-md-8">
+                          {% block content %}
+                          {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-</body>
+    </body>
 </html>

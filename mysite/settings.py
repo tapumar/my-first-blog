@@ -25,7 +25,7 @@ SECRET_KEY = '#ov%(o&(e4xtt$!@q(zpqcw)0ho9st4$)8@murbg0-th=@$p^)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'recomenda.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'recomenda.pythonanywhere.com', 'localhost']
 
 
 # Application definition
