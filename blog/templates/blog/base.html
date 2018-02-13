@@ -9,21 +9,22 @@
     </head>
     <body>
         <div class="container">
-            {% if not user.is_authenticated %}
-                <div class="row">
-                    <a href="{% url 'signup' %}" class="top-menu">Sign up</a><a href="{% url 'login' %}" class="top-menu">Log in</a>
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if not user.is_authenticated %}
+                        <div class="row">
+                            <a href="{% url 'signup' %}" class="top-menu">Sign up</a><a href="{% url 'login' %}" class="top-menu">Log in</a>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <a href="{% url 'logout' %}" class="top-menu">Log out</a>
+                        </div>
+                    {% endif %}
+                    <a href="/"><img src="../static/images/recomenda_capa.png"></a>
+                    {% block content %}
+                    {% endblock %}
                 </div>
-            {% else %}
-                <div class="row">
-                    <a href="{% url 'logout' %}" class="top-menu">Log out</a>
-                </div>
-            {% endif %}
-            <div class="container">
-                    <a href=""><img src="../static/images/recomenda_capa.png"></a>
             </div>
-            
-            {% block content %}
-            {% endblock %}
         </div>
     </body>
 </html>

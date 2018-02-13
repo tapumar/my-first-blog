@@ -10,20 +10,19 @@
     </ul>
 </div>
 <div class="col-sm-3"></div>
-<div class="col-sm-6">
-      <br/><br/><br/>
-      {% if not user.is_authenticated %}
-      <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Favor logar primeiro</b></p>
-      {% else %}
-        <ul>
-          <li><b><a href="encanador">Encanador</a></li>
-          <li><a href="pedreiro">Pedreiro</li>
-          <li><a href="eletricista">Eletricista</li>
-          <li><a href="manicure">Manicure</li>
-          <li><a href="costura">Costura</li>
-          <li><a href="cabelo">Cabelo</li>
-          <li><a href="jardinagem">Jardinagem</b></li>
-        </ul>
+<div class="col-sm-6 real-content">
+    {% if not user.is_authenticated %}
+        <p><b>Favor logar primeiro</b></p>
+    {% else %}
+    <ul>
+        <li><b><a href="encanador">Encanador</a></li>
+        <li><a href="pedreiro">Pedreiro</li>
+        <li><a href="eletricista">Eletricista</li>
+        <li><a href="manicure">Manicure</li>
+        <li><a href="costura">Costura</li>
+        <li><a href="cabelo">Cabelo</li>
+        <li><a href="jardinagem">Jardinagem</b></li>
+    </ul>
     {% endif %}
 </div>
 

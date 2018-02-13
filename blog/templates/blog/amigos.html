@@ -9,12 +9,12 @@
         <li><a href="contatos">Contatos</a></li>
     </ul>
 </div>
-<div class="col-sm-3"></div>
-<div class="col-sm-6">
-      <br/><br/><br/>
-      {% if not user.is_authenticated %}
-      <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Favor logar primeiro</b></p>
-      {% else %}
-        <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nenhum amigo cadastrado</b></p>
-      {% endif %}
+<div class="col-sm-3">
+</div>
+<div class="col-sm-6 real-content">
+    {% if not user.is_authenticated %}
+        <p><b>Favor logar primeiro</b></p>
+    {% else %}
+        <p><b>Nenhum amigo cadastrado</b></p>
+    {% endif %}
 {% endblock %}
