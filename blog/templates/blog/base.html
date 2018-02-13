@@ -18,22 +18,25 @@
                     <a href="{% url 'logout' %}" class="top-menu">Log out</a>
                 </div>
             {% endif %}
-            <div class="row">
-                <div >
+            <div class="container">
                     <a href="/"><img src="../static/images/recomenda_capa.png"></a>
-                </div>
             </div>
 
             <hr>
 
             {% if user.is_authenticated %}
-            <div class="col-1 col-sm-1 col-lg-1">
+            <div class="container">
+            <div class="row">
+                <div class="span6">
                 <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="sobre">Sobre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li class="active"><a href="servicos">Serviços&nbsp;</a></li>
-                    <li class="active"><a href="amigos">Amigos&nbsp;&nbsp;&nbsp;</a></li>
-                    <li class="active"><a href="contatos">Contatos&nbsp;</a></li>
+                    <li class="active">
+                    <li><a href="sobre">Sobre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="servicos">Serviços&nbsp;</a></li>
+                    <li><a href="amigos">Amigos&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="contatos">Contatos&nbsp;</a></li>
                 </ul>
+            </div>
+            </div>
             </div>
             {% else %}
             <div class="col-1 col-sm-1 col-lg-1">
