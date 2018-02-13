@@ -11,7 +11,7 @@
         <div class="container">
             {% if not user.is_authenticated %}
                 <div class="row">
-                    <a href="{% url 'signup' %}" class="top-menu">Sign up </a><a href="{% url 'login' %}" class="top-menu"> Log in</a>
+                    <a href="{% url 'signup' %}" class="top-menu">Sign up</a><a href="{% url 'login' %}" class="top-menu">Log in</a>
                 </div>
             {% else %}
                 <div class="row">
@@ -19,26 +19,11 @@
                 </div>
             {% endif %}
             <div class="container">
-                    <a href="/"><img src="../static/images/recomenda_capa.png"></a>
+                    <a href=""><img src="../static/images/recomenda_capa.png"></a>
             </div>
-
-            <hr>
-
-            <div class="row">
-                <ul class="nav nav-tabs" id="myTab">
-                    <li class="active">
-                    <li><a href="sobre">Sobre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                    <li><a href="servicos">Serviços&nbsp;</a></li>
-                    <li><a href="amigos">Amigos&nbsp;&nbsp;&nbsp;</a></li>
-                    <li><a href="contatos">Contatos&nbsp;</a></li>
-                </ul>
-            </div>
-
-                        {% block content %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
+            
+            {% block content %}
+            {% endblock %}
         </div>
     </body>
 </html>
