@@ -1,12 +1,15 @@
 from django.utils import timezone
 from .models import Post
-from django.shortcuts import render, get_object_or_404,redirect
+from django.shortcuts import render, get_object_or_404,redirect, render_to_response
 from .forms import PostForm
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import LoginForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
+
 
 def signup(request):
     if request.method == 'POST':
@@ -42,6 +45,12 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'blog/login.html', {'form': form})
 
+
+def user_logout(request):
+    logout(request)
+    return redirect('/')
+
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -61,6 +70,27 @@ def servicos_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
+
+def encanadores(request):
+    return render(request, 'services/encanador.html')
+
+def eletricistas(request):
+    return render(request, 'services/eletricista.html')
+
+def pedreiros(request):
+    return render(request, 'services/pedreiro.html')
+
+def manicures(request):
+    return render(request, 'services/manicure.html')
+
+def cabelo(request):
+    return render(request, 'services/cabelo.html')
+
+def costura(request):
+    return render(request, 'services/costura.html')
+
+def jardinagem(request):
+    return render(request, 'services/jardinagem.html')
 
 def post_new(request):
     if request.method == "POST":
