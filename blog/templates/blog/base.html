@@ -11,11 +11,11 @@
         <div class="container">
             {% if not user.is_authenticated %}
                 <div class="row">
-                    <a href="{% url 'signup' %}" class="top-menu">Sign up </a>/<a href="{% url 'login' %}" class="top-menu"> Log in</a>
+                    <a href="{% url 'signup' %}" class="top-menu">Sign up </a><a href="{% url 'login' %}" class="top-menu"> Log in</a>
                 </div>
             {% else %}
                 <div class="row">
-                    <a href="{% url 'login' %}" class="top-menu">Log out</a>
+                    <a href="{% url 'logout' %}" class="top-menu">Log out</a>
                 </div>
             {% endif %}
             <div class="row">
@@ -26,9 +26,6 @@
 
             <hr>
 
-            {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
             {% if user.is_authenticated %}
             <div class="col-1 col-sm-1 col-lg-1">
                 <ul class="nav nav-tabs" id="myTab">

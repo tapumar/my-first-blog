@@ -36,7 +36,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return render(request, 'blog/sobre.html', {'form': form})
+                    return redirect('/')
                 else:
                     return HttpResponse('Disabled account')
             else:
@@ -73,6 +73,7 @@ def post_detail(request, pk):
 
 def encanadores(request):
     return render(request, 'services/encanador.html')
+
 
 def eletricistas(request):
     return render(request, 'services/eletricista.html')

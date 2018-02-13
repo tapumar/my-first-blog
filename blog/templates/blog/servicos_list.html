@@ -1,18 +1,22 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <div class="col-sm-4"></div>
-  <div class="col-sm-8">
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
       <br/><br/><br/>
-    <ul>
-      <li><b><a href="encanador">Encanador</a></li>
-      <li><a href="pedreiro">Pedreiro</li>
-      <li><a href="eletricista">Eletricista</li>
-      <li><a href="manicure">Manicure</li>
-      <li><a href="costura">Costura</li>
-      <li><a href="cabelo">Cabelo</li>
-      <li><a href="jardinagem">Jardinagem</b></li>
-    </ul>
+      {% if not user.is_authenticated %}
+      <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Favor logar primeiro</h2>
+      {% else %}
+        <ul>
+          <li><b><a href="encanador">Encanador</a></li>
+          <li><a href="pedreiro">Pedreiro</li>
+          <li><a href="eletricista">Eletricista</li>
+          <li><a href="manicure">Manicure</li>
+          <li><a href="costura">Costura</li>
+          <li><a href="cabelo">Cabelo</li>
+          <li><a href="jardinagem">Jardinagem</b></li>
+        </ul>
+    {% endif %}
 </div>
 
 {% endblock %}
