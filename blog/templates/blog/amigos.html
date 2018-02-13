@@ -1,6 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<div class="post">
-</div>
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+      <br/><br/><br/>
+      {% if not user.is_authenticated %}
+      <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Favor logar primeiro</b></p>
+      {% else %}
+        <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nenhum amigo cadastrado</b></p>
+      {% endif %}
 {% endblock %}
