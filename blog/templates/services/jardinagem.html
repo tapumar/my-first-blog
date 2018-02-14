@@ -1,5 +1,16 @@
 {% extends 'services/base_servicos.html' %}
 {% block content %}
+<div class="row">
+    <ul class="nav nav-tabs" id="myTab">
+        <li><img  src="../static/images/recomenda.jpg" style="width: 50px" style="height: 50px" ></li>
+        <li><a href="{% url 'sobre' %}">Sobre</a></li>
+        <li class="active"><a href="servicos">Serviços</a></li>
+        <li><a href="{% url 'amigos' %}">Amigos</a></li>
+        <li><a href="{% url 'contatos' %}">Contatos</a></li>
+        <li><a href="cadastro"> <p>Cadastrar seu serviço</p></a></li>
+
+    </ul>
+</div class='row'>
     <br/>
         <div class="container">
             <p><b>Lista de Jardineiros</b></p>

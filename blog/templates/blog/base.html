@@ -14,7 +14,6 @@
     </head>
     <body>
         <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="row">
                 <div class="col-sm-8">
                     {% if not user.is_authenticated %}
@@ -26,17 +25,6 @@
                             <a href="{% url 'logout' %}" class="top-menu">Log out</a>
                         </div>
                     {% endif %}
-                    <div class="row">
-                        <ul class="nav nav-tabs" id="myTab">
-                            <li><img  src="../static/images/recomenda.jpg" style="width: 50px" style="height: 50px" ></li>
-                            <li class="active"><a href="sobre">Sobre</a></li>
-                            <li><a href="servicos">Serviços</a></li>
-                            <li><a href="amigos">Amigos</a></li>
-                            <li><a href="contatos">Contatos</a></li>
-                            <li><a href="cadastro"> <p>Cadastrar seu serviço</p></a></li>
-                        </ul>
-                    </div>
-                </nav>
 
 
                     {% block content %}

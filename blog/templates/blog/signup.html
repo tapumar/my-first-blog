@@ -1,6 +1,17 @@
 
 {% block content %}
   <h2>Sign up</h2>
+  <div class="row">
+      <ul class="nav nav-tabs" id="myTab">
+          <li><img  src="../static/images/recomenda.jpg" style="width: 50px" style="height: 50px" ></li>
+          <li><a href="{% url 'sobre' %}">Sobre</a></li>
+          <li><a href="servicos">Serviços</a></li>
+          <li><a href="{% url 'amigos' %}">Amigos</a></li>
+          <li><a href="{% url 'contatos' %}">Contatos</a></li>
+          <li><a href="cadastro"> <p>Cadastrar seu serviço</p></a></li>
+
+      </ul>
+  </div class='row'>
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
