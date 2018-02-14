@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.post_list),
+    url(r'^$', views.sobre),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
@@ -18,8 +18,7 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^login/encanador', views.encanadores, name='encanador'),
-    url(r'^encanador', views.servicos_list, name='servico'),
+    url(r'^encanador', views.encanadores, name='encanador'),
     url(r'^eletricista', views.eletricistas, name='eletricista'),
     url(r'^pedreiro', views.pedreiros, name='pedreiro'),
     url(r'^costura', views.costura, name='costura'),
