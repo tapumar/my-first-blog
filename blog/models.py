@@ -16,3 +16,29 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+servicos_choice = (
+("Encanador" , "Encanador"),
+("Manicure", "Manicure"),
+("Pedreiro", "Pedreiro"),
+("Cabelo", "Cabelo"),
+("Costura", "Costura"),
+("Eletricista", "Eletricista"),
+("Jardinagem", "Jardinagem"),
+("Outros","Outros")
+)
+class Inscricao(models.Model):
+        servico = models.CharField(choices=servicos_choice, max_length=100)
+        nome = models.CharField(max_length=100)
+        cpf = models.CharField('CPF', max_length=11, unique=True)
+        idade = models.IntegerField()
+        email = models.EmailField(unique=True)
+        telefone = models.CharField(max_length=20, blank=True)
+
+        class Meta:
+                ordering = ['nome']
+                verbose_name = (u'nome')
+                verbose_name_plural = (u'nomes')
+
+        def __unicode__(self):
+                return self.nome

@@ -1,7 +1,7 @@
 from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404,redirect, render_to_response
-from .forms import PostForm
+from .forms import PostForm, InscricaoForm
 from django.http import HttpResponse
 from django.contrib import messages
 from .forms import LoginForm
@@ -9,6 +9,9 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+from django.views.generic import CreateView, ListView
+from django.core.urlresolvers import reverse_lazy
+from .models import Inscricao
 
 
 def signup(request):
@@ -93,29 +96,20 @@ def costura(request):
 def jardinagem(request):
     return render(request, 'services/jardinagem.html')
 
-def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
 
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+def home(request):
+        return render(request,'index.html')
+
+def volta(request):
+    return redirect('servicos')
+
+class Criar(CreateView):
+        template_name = 'services/cadastro.html'
+        model = Inscricao
+        success_url = reverse_lazy('servicos_list')
+        fields = ('servico','nome', 'cpf', 'idade','email','telefone')
+
+class Lista(ListView):
+        template_name = 'services/lista.html'
+        model = Inscricao
+        context_object = 'nome'

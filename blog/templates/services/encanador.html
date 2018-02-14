@@ -1,9 +1,37 @@
 {% extends 'services/base_servicos.html' %}
 
 {% block content %}
-    <br/>
-        <div class="container">
-            <p><b>Lista de Encanadores</b></p>
-         </div>
+<h1>Lista de Clientes</h1>
+<br>
+        <table>
+                <tr>
+                        <th>Servico</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Idade</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
 
+                </tr>
+        {% for nome in object_list %}
+
+                <tr>
+                    <div id="x"> {{nome.servico}} </div>
+                    <script>
+                    var serv = ''
+                    if (nome.getAtribute("x") == "Encanador") {
+                        document.getElementById("servico").innerHTML = serv;
+                    serv = "<td>{{nome.servico}}</td><td>{{nome.}}</td><td>{{nome.email}}</td><td>{{nome.telefone}}</td>"
+
+                    document.getElementById("servico").innerHTML = serv;
+                }
+                    //<span id="servico"></span>
+                    </script>
+                    <span id="servico"></span>
+
+                </tr>
+        {% empty %}
+                <li>Sem itens na lista.</li>
+        {% endfor %}
+        </table>
 {% endblock %}
