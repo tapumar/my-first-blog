@@ -19,10 +19,7 @@ urlpatterns = [
     url(r'^manicure', views.manicures, name='manicure'),
     url(r'^cabelo', views.cabelo, name='cabelo'),
     url(r'^jardinagem', views.jardinagem, name='jardinagem'),
-    url(r'^$', views.servicos_list, name='servicos_list'),
     url(r'^cadastro', views.Criar.as_view(), name='cadastro'),
     url(r'^lista', views.Lista.as_view(), name='lista'),
-    url(r'^cadastro_servicos', views.Criar.as_view(), name='cadastro'),
-    url(r'^servicos_list', views.volta ,name='volta')
 
 ]

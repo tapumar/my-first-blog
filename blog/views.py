@@ -111,5 +111,6 @@ class Criar(CreateView):
 
 class Lista(ListView):
         template_name = 'services/lista.html'
+        template_name = 'services/encanador.html'
         model = Inscricao
         context_object = 'nome'
