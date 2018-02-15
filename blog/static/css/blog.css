@@ -8,6 +8,9 @@
     font-size: 20pt;
     text-decoration: none;
 }
+th {
+    margin-right: 100px;
+}
 
 .real-content {
     margin-top: 40px;

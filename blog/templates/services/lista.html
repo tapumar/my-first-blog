@@ -11,58 +11,56 @@
         <li><a href="cadastro"> <p>Cadastrar seu serviço</p></a></li>
 
     </ul>
-</div class='row'>
-        <h1>Lista de Clientes</h1>
+</div>
+<div class='row'>
+    <h1>Lista de Clientes</h1>
+    <table>
+        <tr>
+            <th>Servico</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+        </tr>
+        {% for nome in object_list %}
+            <tr>
+                <!--<div id="x"> {{nome.servico}} </div>
+                <script>
+                    var serv = ''
+                    if (nome.getAtribute("x") == "Encanador") {
+                        document.getElementById("servico").innerHTML = serv;
+                        serv = "<td>{{nome.servico}}</td><td>{{nome.}}</td><td>{{nome.email}}</td><td>{{nome.telefone}}</td>"
+                        document.getElementById("servico").innerHTML = serv;
+                    }
+                    //<span id="servico"></span>
+                </script>
+                <span id="servico"></span>-->
+                <id='serv' type='intero' value='{{nome.servico}}' />
+                <script>
+                    var serv = ''
+                    switch(nome.getAtribute("serv")) {
+                        case 1:
+                            serv = 'Encanador'
+                            break;
+                        case 2:
+                            serv = 'manicure'
+                            break;
+                    }
+                    document.getElementById("servico").innerHTML = serv;
+                    //<span id="servico"></span>
+                </script>
 
-                <table>
-                        <tr>
-                                <th>Servico</th>
-                                <th>Nome</th>
-                                <th>CPF</th>
-                                <th>Idade</th>
-                                <th>Email</th>
-                                <th>Telefone</th>
-
-                        </tr>
-                {% for nome in object_list %}
-                        <tr>
-                            <!--<div id="x"> {{nome.servico}} </div>
-                            <script>
-                            var serv = ''
-                            if (nome.getAtribute("x") == "Encanador") {
-                                document.getElementById("servico").innerHTML = serv;
-                            serv = "<td>{{nome.servico}}</td><td>{{nome.}}</td><td>{{nome.email}}</td><td>{{nome.telefone}}</td>"
-
-                            document.getElementById("servico").innerHTML = serv;
-                        }
-                            //<span id="servico"></span>
-                            </script>
-                            <span id="servico"></span>-->
-                            <id='serv' type='intero' value='{{nome.servico}}' />
-                            <script>
-                            var serv = ''
-                            switch(nome.getAtribute("serv")) {
-                                case 1:
-                                    serv = 'Encanador'
-                                    break;
-                                case 2:
-                                    serv = 'manicure'
-                                    break;
-
-                            }
-                            document.getElementById("servico").innerHTML = serv;
-                            //<span id="servico"></span>
-                            </script>
-                                <td>{{nome.servico}}</td>
-                                <td>{{ nome.nome }}</td>
-                                <td>{{ nome.cpf }}</td>
-                                <td>{{ nome.idade }}</td>
-                                <td>{{ nome.email }}</td>
-                                <td>{{ nome.telefone }}</td>
-                                <td>{{ nome.criado_em|date:"d/m/Y" }}</td>
-                        </tr>
-                {% empty %}
-                        <li>Sem itens na lista.</li>
-                {% endfor %}
-                </table>
+                <td>{{ nome.servico}}</td>
+                <td>{{ nome.nome }}</td>
+                <td>{{ nome.cpf }}</td>
+                <td>{{ nome.idade }}</td>
+                <td>{{ nome.email }}</td>
+                <td>{{ nome.telefone }}</td>
+                <td>{{ nome.criado_em|date:"d/m/Y" }}</td>
+            </tr>
+        {% empty %}
+            <li>Sem itens na lista.</li>
+        {% endfor %}
+    </table>
 {% endblock content %}

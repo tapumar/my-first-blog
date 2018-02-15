@@ -11,38 +11,53 @@
         <li><a href="cadastro"> <p>Cadastrar seu serviço</p></a></li>
 
     </ul>
-</div class='row'>
-<h1>Lista de Clientes</h1>
-<br>
+</div>
+<div class='row'>
+    <div class="col-sm-3 real-content">
+        <ul>
+            <li><b><a href="encanador">Encanador</a></li>
+            <li><a href="pedreiro">Pedreiro</a></li>
+            <li class="active"><a href="eletricista">Eletricista</a></li>
+            <li><a href="manicure">Manicure</a></li>
+            <li><a href="costura">Costura</a></li>
+            <li><a href="cabelo">Cabelo</a></li>
+            <li><a href="jardinagem">Jardinagem</b></a></li>
+        </ul>
+    </div>
+    <div class="col-sm-6 real-content">
+        <p><b>Eletricista</b></p>
+        <h1>Lista de Clientes</h1>
         <table>
-                <tr>
-                        <th>Servico</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Idade</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-
-                </tr>
-        {% for nome in object_list %}
-
-                <tr>
-                    <div id="x"> {{nome.servico}} </div>
-                    <script>
-                    var serv = ''
-                    if (nome.getAtribute("x") == "Encanador") {
-                        document.getElementById("servico").innerHTML = serv;
-                    serv = "<td>{{nome.servico}}</td><td>{{nome.}}</td><td>{{nome.email}}</td><td>{{nome.telefone}}</td>"
-
-                    document.getElementById("servico").innerHTML = serv;
-                }
-                    //<span id="servico"></span>
-                    </script>
-                    <span id="servico"></span>
-
-                </tr>
-        {% empty %}
-                <li>Sem itens na lista.</li>
-        {% endfor %}
+            <tr>
+                <th>Servico</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Telefone</th>
+            </tr>
         </table>
+        <table>
+            {% for nome in object_list %}
+                    <tr>
+                        <div id="x"> {{nome.servico}} </div>
+                        <script>
+                        var serv = ''
+                        if (nome.getAtribute("x") == "Encanador") {
+                            document.getElementById("servico").innerHTML = serv;
+                            serv = "<td>{{nome.servico}}</td><td>{{nome.}}</td><td>{{nome.email}}</td><td>{{nome.telefone}}</td>"
+                            document.getElementById("servico").innerHTML = serv;
+                        }
+                        //<span id="servico"></span>
+                        </script>
+                        <span id="servico"></span>
+
+                    </tr>
+            {% empty %}
+                    <li>Sem itens na lista.</li>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
 {% endblock %}
