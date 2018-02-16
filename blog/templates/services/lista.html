@@ -14,13 +14,7 @@
         </tr>
         {% for nome in object_list %}
             <tr>
-                <script>
-                var serv = '{{nome.servico}}'
-                switch (serv) {
-                    case "Encanador":
-                        break;
-                }
-                </script>
+
                 <td>{{ nome.servico}}</td>
                 <td>{{ nome.nome }}</td>
                 <td>{{ nome.cpf }}</td>
